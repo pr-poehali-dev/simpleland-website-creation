@@ -5,6 +5,7 @@ import Icon from '@/components/ui/icon';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
+  const [language, setLanguage] = useState<'ru' | 'en'>('ru');
 
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
@@ -12,59 +13,246 @@ const Index = () => {
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const content = {
+    ru: {
+      nav: {
+        home: 'Главная',
+        products: 'Продукция',
+        advantages: 'Преимущества',
+        projects: 'Проекты',
+        about: 'О компании',
+        contact: 'Связаться'
+      },
+      hero: {
+        title: 'Быстровозводимые здания',
+        subtitle: 'нового поколения',
+        description: 'SimpleLand — производитель современных металлоконструкций и быстровозводимых зданий. Создаем надежные решения для бизнеса с использованием передовых технологий.',
+        btnProducts: 'Наша продукция',
+        btnPortfolio: 'Портфолио',
+        stats: {
+          projects: 'Реализованных проектов',
+          years: 'Лет на рынке',
+          clients: 'Довольных клиентов'
+        }
+      },
+      products: {
+        title: 'Наша продукция',
+        subtitle: 'Широкий спектр решений для различных отраслей бизнеса',
+        items: [
+          {
+            title: 'Жилые здания',
+            description: 'Современные быстровозводимые дома',
+            features: ['Комфортная планировка', 'Энергоэффективность', 'Экологичные материалы']
+          },
+          {
+            title: 'Торговые павильоны',
+            description: 'Здания для розничной торговли и шоурумов',
+            features: ['Современный дизайн', 'Витражное остекление', 'Готовые коммуникации']
+          },
+          {
+            title: 'Общественные здания',
+            description: 'Решения для оперативного развертывания медицинского учреждения',
+            features: ['Качественная отделка', 'Эргономичная планировка', 'Энергосбережение']
+          }
+        ]
+      },
+      advantages: {
+        title: 'Преимущества',
+        subtitle: 'Почему выбирают SimpleLand',
+        items: [
+          {
+            title: 'Скорость строительства',
+            description: 'Сокращение сроков строительства в 3-5 раз по сравнению с традиционными методами'
+          },
+          {
+            title: 'Экономия бюджета',
+            description: 'Снижение стоимости строительства до 40% благодаря заводскому производству'
+          },
+          {
+            title: 'Высокое качество',
+            description: 'Контроль на каждом этапе производства, сертифицированные материалы'
+          },
+          {
+            title: 'Надежность конструкций',
+            description: 'Расчет на снеговые и ветровые нагрузки, сейсмостойкость до 9 баллов'
+          },
+          {
+            title: 'Энергоэффективность',
+            description: 'Современная изоляция и инженерные системы снижают затраты на отопление'
+          },
+          {
+            title: 'Гибкость решений',
+            description: 'Любые архитектурные формы, возможность расширения и модификации'
+          }
+        ]
+      },
+      projectsSection: {
+        title: 'Реализованные проекты',
+        subtitle: 'Примеры наших работ',
+        area: 'Площадь',
+        period: 'Срок строительства'
+      },
+      about: {
+        title: 'О компании SimpleLand',
+        paragraphs: [
+          'SimpleLand — российский производитель быстровозводимых зданий с 15-летним опытом работы. Мы специализируемся на проектировании и строительстве современных металлоконструкций для различных отраслей.',
+          'Наша миссия — предоставлять клиентам инновационные строительные решения, которые сочетают высокое качество, скорость возведения и экономическую эффективность.'
+        ]
+      },
+      contact: {
+        title: 'Свяжитесь с нами',
+        subtitle: 'Готовы обсудить ваш проект',
+        name: 'Имя',
+        email: 'Email',
+        message: 'Сообщение',
+        send: 'Отправить',
+        phone: 'Телефон',
+        workHours: 'Режим работы'
+      }
+    },
+    en: {
+      nav: {
+        home: 'Home',
+        products: 'Products',
+        advantages: 'Advantages',
+        projects: 'Projects',
+        about: 'About',
+        contact: 'Contact'
+      },
+      hero: {
+        title: 'Prefabricated buildings',
+        subtitle: 'of new generation',
+        description: 'SimpleLand is a manufacturer of modern metal structures and prefabricated buildings. We create reliable solutions for business using advanced technologies.',
+        btnProducts: 'Our products',
+        btnPortfolio: 'Portfolio',
+        stats: {
+          projects: 'Completed projects',
+          years: 'Years in business',
+          clients: 'Satisfied clients'
+        }
+      },
+      products: {
+        title: 'Our products',
+        subtitle: 'Wide range of solutions for various business sectors',
+        items: [
+          {
+            title: 'Residential buildings',
+            description: 'Modern prefabricated houses',
+            features: ['Comfortable layout', 'Energy efficiency', 'Eco-friendly materials']
+          },
+          {
+            title: 'Commercial pavilions',
+            description: 'Buildings for retail and showrooms',
+            features: ['Modern design', 'Glazed facades', 'Ready utilities']
+          },
+          {
+            title: 'Public buildings',
+            description: 'Solutions for rapid deployment of medical facilities',
+            features: ['Quality finishing', 'Ergonomic layout', 'Energy saving']
+          }
+        ]
+      },
+      advantages: {
+        title: 'Advantages',
+        subtitle: 'Why choose SimpleLand',
+        items: [
+          {
+            title: 'Construction speed',
+            description: 'Reduction of construction time by 3-5 times compared to traditional methods'
+          },
+          {
+            title: 'Budget savings',
+            description: 'Reduction of construction costs up to 40% thanks to factory production'
+          },
+          {
+            title: 'High quality',
+            description: 'Control at every stage of production, certified materials'
+          },
+          {
+            title: 'Structural reliability',
+            description: 'Calculation for snow and wind loads, seismic resistance up to 9 points'
+          },
+          {
+            title: 'Energy efficiency',
+            description: 'Modern insulation and engineering systems reduce heating costs'
+          },
+          {
+            title: 'Flexibility of solutions',
+            description: 'Any architectural forms, possibility of expansion and modification'
+          }
+        ]
+      },
+      projectsSection: {
+        title: 'Completed projects',
+        subtitle: 'Examples of our work',
+        area: 'Area',
+        period: 'Construction period'
+      },
+      about: {
+        title: 'About SimpleLand',
+        paragraphs: [
+          'SimpleLand is a Russian manufacturer of prefabricated buildings with 15 years of experience. We specialize in the design and construction of modern metal structures for various industries.',
+          'Our mission is to provide customers with innovative construction solutions that combine high quality, speed of construction and economic efficiency.'
+        ]
+      },
+      contact: {
+        title: 'Contact us',
+        subtitle: 'Ready to discuss your project',
+        name: 'Name',
+        email: 'Email',
+        message: 'Message',
+        send: 'Send',
+        phone: 'Phone',
+        workHours: 'Working hours'
+      }
+    }
+  };
+
+  const t = content[language];
+
   const products = [
     {
-      title: 'Жилые здания',
-      description: 'Современные быстровозводимые дома',
-      features: ['Комфортная планировка', 'Энергоэффективность', 'Экологичные материалы'],
+      ...t.products.items[0],
       icon: 'Home'
     },
     {
-      title: 'Торговые павильоны',
-      description: 'Здания для розничной торговли и шоурумов',
-      features: ['Современный дизайн', 'Витражное остекление', 'Готовые коммуникации'],
+      ...t.products.items[1],
       icon: 'Store'
     },
     {
-      title: 'Общественные здания',
-      description: 'Решения для оперативного развертывания медицинского учреждения',
-      features: ['Качественная отделка', 'Эргономичная планировка', 'Энергосбережение'],
+      ...t.products.items[2],
       icon: 'Building2'
     }
   ];
 
   const advantages = [
     {
-      title: 'Скорость строительства',
-      description: 'Сокращение сроков строительства в 3-5 раз по сравнению с традиционными методами',
+      ...t.advantages.items[0],
       icon: 'Zap'
     },
     {
-      title: 'Экономия бюджета',
-      description: 'Снижение стоимости строительства до 40% благодаря заводскому производству',
+      ...t.advantages.items[1],
       icon: 'TrendingDown'
     },
     {
-      title: 'Высокое качество',
-      description: 'Контроль на каждом этапе производства, сертифицированные материалы',
+      ...t.advantages.items[2],
       icon: 'Award'
     },
     {
-      title: 'Надежность конструкций',
-      description: 'Расчет на снеговые и ветровые нагрузки, сейсмостойкость до 9 баллов',
+      ...t.advantages.items[3],
       icon: 'Shield'
     },
     {
-      title: 'Энергоэффективность',
-      description: 'Современная изоляция и инженерные системы снижают затраты на отопление',
+      ...t.advantages.items[4],
       icon: 'Leaf'
     },
     {
-      title: 'Гибкость решений',
-      description: 'Любые архитектурные формы, возможность расширения и модификации',
+      ...t.advantages.items[5],
       icon: 'Maximize2'
     }
   ];
+
+
 
   const projects = [
     {
@@ -93,15 +281,24 @@ const Index = () => {
               <span className="text-2xl font-bold text-primary">SimpleLand</span>
             </div>
             <div className="hidden md:flex gap-6">
-              <button onClick={() => scrollToSection('home')} className="text-sm font-medium hover:text-primary transition-colors">Главная</button>
-              <button onClick={() => scrollToSection('products')} className="text-sm font-medium hover:text-primary transition-colors">Продукция</button>
-              <button onClick={() => scrollToSection('advantages')} className="text-sm font-medium hover:text-primary transition-colors">Преимущества</button>
-              <button onClick={() => scrollToSection('projects')} className="text-sm font-medium hover:text-primary transition-colors">Проекты</button>
-              <button onClick={() => scrollToSection('about')} className="text-sm font-medium hover:text-primary transition-colors">О компании</button>
+              <button onClick={() => scrollToSection('home')} className="text-sm font-medium hover:text-primary transition-colors">{t.nav.home}</button>
+              <button onClick={() => scrollToSection('products')} className="text-sm font-medium hover:text-primary transition-colors">{t.nav.products}</button>
+              <button onClick={() => scrollToSection('advantages')} className="text-sm font-medium hover:text-primary transition-colors">{t.nav.advantages}</button>
+              <button onClick={() => scrollToSection('projects')} className="text-sm font-medium hover:text-primary transition-colors">{t.nav.projects}</button>
+              <button onClick={() => scrollToSection('about')} className="text-sm font-medium hover:text-primary transition-colors">{t.nav.about}</button>
             </div>
-            <Button onClick={() => scrollToSection('contact')} className="hidden md:inline-flex">
-              Связаться
-            </Button>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => setLanguage(language === 'ru' ? 'en' : 'ru')}
+                className="hidden md:flex items-center gap-2 px-3 py-2 rounded-lg border border-slate-200 hover:border-primary hover:bg-primary/5 transition-all text-sm font-medium"
+              >
+                <Icon name="Languages" size={18} />
+                <span>{language === 'ru' ? 'EN' : 'RU'}</span>
+              </button>
+              <Button onClick={() => scrollToSection('contact')} className="hidden md:inline-flex">
+                {t.nav.contact}
+              </Button>
+            </div>
           </div>
         </div>
       </nav>
@@ -111,34 +308,33 @@ const Index = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-in-left">
               <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                Быстровозводимые здания
-                <span className="block text-primary mt-2">нового поколения</span>
+                {t.hero.title}
+                <span className="block text-primary mt-2">{t.hero.subtitle}</span>
               </h1>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                SimpleLand — производитель современных металлоконструкций и быстровозводимых зданий. 
-                Создаем надежные решения для бизнеса с использованием передовых технологий.
+                {t.hero.description}
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button size="lg" onClick={() => scrollToSection('products')} className="text-lg px-8">
-                  Наша продукция
+                  {t.hero.btnProducts}
                   <Icon name="ArrowRight" size={20} className="ml-2" />
                 </Button>
                 <Button size="lg" variant="outline" onClick={() => scrollToSection('projects')} className="text-lg px-8">
-                  Портфолио
+                  {t.hero.btnPortfolio}
                 </Button>
               </div>
               <div className="grid grid-cols-3 gap-8 mt-12 pt-12 border-t">
                 <div>
                   <div className="text-4xl font-bold text-primary mb-2">500+</div>
-                  <div className="text-sm text-muted-foreground">Реализованных проектов</div>
+                  <div className="text-sm text-muted-foreground">{t.hero.stats.projects}</div>
                 </div>
                 <div>
                   <div className="text-4xl font-bold text-primary mb-2">15</div>
-                  <div className="text-sm text-muted-foreground">Лет на рынке</div>
+                  <div className="text-sm text-muted-foreground">{t.hero.stats.years}</div>
                 </div>
                 <div>
                   <div className="text-4xl font-bold text-primary mb-2">98%</div>
-                  <div className="text-sm text-muted-foreground">Довольных клиентов</div>
+                  <div className="text-sm text-muted-foreground">{t.hero.stats.clients}</div>
                 </div>
               </div>
             </div>
@@ -156,9 +352,9 @@ const Index = () => {
       <section id="products" className="py-20 px-4 bg-slate-50">
         <div className="container mx-auto">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Наша продукция</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">{t.products.title}</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Широкий спектр решений для различных отраслей бизнеса
+              {t.products.subtitle}
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -194,9 +390,9 @@ const Index = () => {
       <section id="advantages" className="py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Почему выбирают нас</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">{t.advantages.title}</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Преимущества технологии быстровозводимых зданий SimpleLand
+              {t.advantages.subtitle}
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -220,9 +416,9 @@ const Index = () => {
       <section id="projects" className="py-20 px-4 bg-slate-900 text-white">
         <div className="container mx-auto">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Реализованные проекты</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">{t.projectsSection.title}</h2>
             <p className="text-lg text-slate-300 max-w-2xl mx-auto">
-              Примеры наших работ — от складов до производственных комплексов
+              {t.projectsSection.subtitle}
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
@@ -249,14 +445,14 @@ const Index = () => {
                     <div className="flex items-center gap-2">
                       <Icon name="Maximize2" size={20} className="text-primary" />
                       <div>
-                        <div className="text-xs text-slate-400">Площадь</div>
+                        <div className="text-xs text-slate-400">{t.projectsSection.area}</div>
                         <div className="font-semibold">{project.area}</div>
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
                       <Icon name="Clock" size={20} className="text-primary" />
                       <div>
-                        <div className="text-xs text-slate-400">Срок</div>
+                        <div className="text-xs text-slate-400">{t.projectsSection.period}</div>
                         <div className="font-semibold">{project.period}</div>
                       </div>
                     </div>
@@ -279,32 +475,11 @@ const Index = () => {
               />
             </div>
             <div className="animate-slide-in-right">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">О компании SimpleLand</h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">{t.about.title}</h2>
               <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
-                <p>
-                  SimpleLand — российский производитель быстровозводимых зданий с 15-летним опытом работы. 
-                  Мы специализируемся на проектировании и строительстве современных металлоконструкций для различных отраслей.
-                </p>
-                <p>
-                  Наша миссия — предоставлять клиентам инновационные строительные решения, которые сочетают высокое качество, 
-                  надежность и экономическую эффективность.
-                </p>
-                <p>
-                  Производственные мощности компании позволяют реализовывать проекты любой сложности — от небольших 
-                  торговых павильонов до крупных логистических и производственных комплексов.
-                </p>
-              </div>
-              <div className="mt-8 p-6 bg-primary/5 rounded-xl border-l-4 border-primary">
-                <div className="flex items-start gap-3">
-                  <Icon name="Award" size={24} className="text-primary mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-lg mb-2">Сертификаты и лицензии</h3>
-                    <p className="text-muted-foreground">
-                      Все наши решения соответствуют российским и международным стандартам качества, 
-                      имеют необходимые сертификаты соответствия.
-                    </p>
-                  </div>
-                </div>
+                {t.about.paragraphs.map((paragraph, idx) => (
+                  <p key={idx}>{paragraph}</p>
+                ))}
               </div>
             </div>
           </div>
@@ -314,10 +489,9 @@ const Index = () => {
       <section id="contact" className="py-20 px-4 bg-gradient-to-br from-primary to-primary/80 text-white">
         <div className="container mx-auto text-center">
           <div className="max-w-3xl mx-auto animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Готовы начать проект?</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">{t.contact.title}</h2>
             <p className="text-xl mb-8 text-white/90 leading-relaxed">
-              Свяжитесь с нами для консультации и расчета стоимости вашего объекта. 
-              Наши специалисты помогут подобрать оптимальное решение.
+              {t.contact.subtitle}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button size="lg" variant="secondary" className="text-lg px-8">
