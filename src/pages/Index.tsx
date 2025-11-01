@@ -348,7 +348,7 @@ const Index = () => {
             <div>
               <h4 className="font-semibold mb-4">Продукция</h4>
               <ul className="space-y-2 text-sm text-slate-400">
-                <li>Складские комплексы</li>
+                <li>Жилые здания</li>
                 <li>Производственные здания</li>
                 <li>Торговые павильоны</li>
                 <li>Офисные центры</li>
