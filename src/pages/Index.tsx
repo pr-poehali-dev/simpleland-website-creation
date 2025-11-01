@@ -144,7 +144,7 @@ const Index = () => {
             </div>
             <div className="animate-slide-in-right">
               <img 
-                src="https://cdn.poehali.dev/projects/f6225a51-0c86-488d-89f3-904193aeffb6/files/6fcb276a-e310-4f3b-81cd-0c4f55f9614d.jpg" 
+                src="https://cdn.poehali.dev/files/9df5c296-9ea8-4791-9a8e-9833e477de77.jpg" 
                 alt="Современное быстровозводимое здание" 
                 className="rounded-2xl shadow-2xl w-full h-auto object-cover"
               />
