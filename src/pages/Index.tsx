@@ -273,7 +273,7 @@ const Index = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-in-left">
               <img 
-                src="https://cdn.poehali.dev/projects/f6225a51-0c86-488d-89f3-904193aeffb6/files/9923e119-ec62-4bb5-b6db-1b8d4126ce02.jpg" 
+                src="https://cdn.poehali.dev/files/384245b7-b4e3-4a31-b303-f1ae96605b35.jpg" 
                 alt="Команда SimpleLand" 
                 className="rounded-2xl shadow-xl w-full h-auto"
               />
